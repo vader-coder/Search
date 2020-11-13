@@ -1,0 +1,6 @@
+file = open('bigMap3.txt', 'r')
+mazeStr = file.read()
+mazeStr = mazeStr.replace(".", "0")
+mazeStr = mazeStr.replace("#", "1")
+output = open('bigMapBin3.txt', 'w')
+output.write(mazeStr)

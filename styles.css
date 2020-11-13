@@ -1,14 +1,43 @@
+rect {
+    opacity: 0.5;
+    width: 20;
+    height: 20;
+}
+.cell {
+    width: 10px;
+    height: 15px;
+}
+svg {
+    cursor: pointer;
+}
+.white {
+    background-color: #ffffff;
+    border: 1px solid #d3d3d3;
+}
+
+/*button:hover {
+    background-color: black;
+}*/
+.black {
+    background-color: black;
+    border: 1px solid black;
+}
+.red {
+    background-color: #ff3860;
+    border: none;
+}
+
 .empty {
-    background-attachment: aliceblue;
+    fill: aliceblue;
 }
 .wall {
-    background-color: black;
+    fill: black;
 }
 .selected {
-    background-color: cyan;
+    fill: cyan;
 }
 .path {
-    background-color: red;
+    fill: red;
 }
 .heightOfPage {
     min-height : 100vh;

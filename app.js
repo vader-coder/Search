@@ -2,6 +2,9 @@
 
 $(document).ready(function () {
     //set cell to white background when black cell is clicked
+    $.getJSON("mazes.json", function(mazes) {
+        console.log(mazes.bigMap);
+    });
     $("button.is-black").click(function () {
         $(this).toggleClass("is-black");
         $(this).toggleClass("is-ghost");
@@ -17,6 +20,18 @@ $(document).ready(function () {
         $(this).removeClass("is-white");
         $(this).addClass("is-black");*/
     });
+    $("button.cell").mouseover(function() {
+        $(this).toggleClass("white");
+        $(this).toggleClass("black");
+        sleep(200);
+    });
+    function sleep(milliseconds) {
+        const date = Date.now();
+        let currentDate = null;
+        do {
+            currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+    }
     $("#BFS, #DFS").click(function() {
         ids = ['0_0', '0_1', '0_2', '0_3', '0_4', '0_5', '0_6', '1_0', '1_1', '1_2', '1_3', '1_4', '1_5', '1_6', '2_0', '2_1', '2_2', '2_3', '2_4', '2_5', '2_6', '3_0', '3_1', '3_2', '3_3', '3_4', '3_5', '3_6', '4_0', '4_1', '4_2', '4_3', '4_4', '4_5', '4_6', '5_0', '5_1', '5_2', '5_3', '5_4', '5_5', '5_6', '6_0', '6_1', '6_2', '6_3', '6_4', '6_5', '6_6'];
         current = 0
