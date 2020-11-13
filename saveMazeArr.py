@@ -11,7 +11,7 @@ def dictToJSON(arr):
     json.dump(arr, fileName)
 
 
-mazeDict = {"bigMap": binToArr('bigMapBin.txt'), "bigMap2": binToArr('bigMapBin.txt'), 
-    "bigMap3": binToArr('bigMapBin.txt') }
+mazeDict = {"bigMap": binToArr('bigMapBin.txt'), "bigMap2": binToArr('bigMapBin2.txt'), 
+    "bigMap3": binToArr('bigMapBin3.txt') }
 
 dictToJSON(mazeDict)

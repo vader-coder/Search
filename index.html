@@ -4,10 +4,12 @@
             integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
             crossorigin="anonymous" />
         <link rel="stylesheet" href="styles.css"/>
-        <link rel="stylesheet" href="maze.less"/>
+        <!--<link rel="stylesheet" href="dist/switchery.css" />
+        <script src="dist/switchery.js"></script>-->
+        <!--<link rel="stylesheet" href="maze.less"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"
             integrity="sha512-rCgfeoOQxpi926f8I0zdBVUY9q/2SKXqrdIy23yEPuvWvJ8/jwDqhQ0eJJhS9L8ySZsmbEQp3LCgPTiaAk5WVw=="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="app.js"></script>
     </head>
@@ -18,10 +20,15 @@
             <section class="hero">
                 <div class="hero-body">
                     <div class="container">
+                        <div class="field">
+                            <input id="toggleEdit" type="checkbox" name="switchRoundedDefault" class="switch is-rounded"
+                                checked="checked">
+                            <label for="toggleEdit">Let yourself edit the maze</label>
+                        </div>
                         <div class="buttons">
-                            <button id="Maze 1" class="button is-primary">Maze 1</button>
-                            <button id="Maze 2" class="button is-primary">Maze 2</button>
-                            <button id="Maze 3" class="button is-primary">Maze 3</button>
+                            <button id="Maze 1" class="button is-primary is-normal bigMap">Maze 1</button>
+                            <button id="Maze 2" class="button is-primary is-normal bigMap2">Maze 2</button>
+                            <button id="Maze 3" class="button is-primary is-normal bigMap3">Maze 3</button>
                         </div>
                     </div>
                 </div>
@@ -36,40 +43,11 @@
                         <li><a id="BFS">Breadth First Search</a></li>
                         <li><a id="DFS">Depth First Search</a></li>
                     </ul>
-                    <!--<br><br>
-                                <div class="buttons">
-                                    <button id="BFS" class="button is-primary">Breadth First Search</button><br>
-                                    <button id="DFS" class="button is-primary">Depth First Search</button>
-                                </div>-->
                 </aside>
-                <div class="column is-four-fifths">
                     <div class="grid">
-                        <button class="cell white"></button>
-                        <button class="cell white"></button>
-                        <button class="cell white"></button>
-                        <br>
-                        <button class="cell white"></button>
-                        <button class="cell white"></button>
-                        <button class="cell white"></button>
+                        <link href="buttonsblank.html" rel="import" />
                     </div>
-                    <svg width="22" height="22">
-                        <rect class="path" x="11" y="11" />
-                    </svg>
-                    <br><br>
             </section>
-            <div class="square"></div>
         </div>
-        <!--
-        <table class="table is-bordered">
-            <tbody>
-                <tr>
-                    <td id="0 0" class="has-background-white"> </td>
-                    <td id="0 1" class="has-background-black"> </td>
-                    <td id="0 2" class="has-background-primary"> </td>
-                    <td id="0 3" class="has-background-danger"> </td>
-                </tr>
-            </tbody>
-        </table>
-    -->
     </body>
 </html>

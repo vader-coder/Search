@@ -6,6 +6,7 @@ rect {
 .cell {
     width: 10px;
     height: 15px;
+    float:left;
 }
 svg {
     cursor: pointer;
@@ -42,6 +43,6 @@ svg {
 .heightOfPage {
     min-height : 100vh;
 }
-button {
+/*button {
     width: 5px;
-}
+}*/
