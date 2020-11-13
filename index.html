@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"
+            integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="styles.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <!--<div class="columns">
+            <div class="column is-one-fifth has-background-light heightOfPage">
+            -->
+            <section class="main-content columns is-fullheight heightOfPage">
+            <br><br>
+                <aside class="menu is-narrow is-fullheight has-background-light">
+                    <br>
+                    <p class="menu-label">
+                        Pathfinding Algorithm
+                    </p>
+                    <ul class="menu-list">
+                        <li><a id="BFS">Breadth First Search</a></li>
+                        <li><a id="DFS">Depth First Search</a></li>
+                    </ul>
+                    <!--<br><br>
+                                <div class="buttons">
+                                    <button id="BFS" class="button is-primary">Breadth First Search</button><br>
+                                    <button id="DFS" class="button is-primary">Depth First Search</button>
+                                </div>-->
+                </aside>
+                <div class="column is-four-fifths">
+                    <svg width="400" height="180">
+                        <rect x="50" y="20" width="20" height="20" style="fill:red;opacity:0.5" />
+                    </svg>
+                    <br><br>
+                    <div class="buttons">
+                        <button id="0_0" class="button is-ghost is-small">
+                            <span class="icon is-small">
+                                <i class="far fa-square"></i>
+                            </span>
+                        </button>
+                        <button id="0_1" class="button is-ghost is-small"> </button>
+                        <button id="0_2" class="button is-ghost is-small"> </button>
+                        <button id="0_3" class="button is-ghost is-small"> </button>
+                        <button id="0_4" class="button is-ghost is-small"> </button>
+                        <button id="0_5" class="button is-ghost is-small"> </button>
+                        <button id="0_6" class="button is-ghost is-small"> </button>
+                    </div>
+                    <div class="buttons">
+                        <button id="1_0" class="button is-ghost is-small"> </button>
+                        <button id="1_1" class="button is-ghost is-small"> </button>
+                        <button id="1_2" class="button is-ghost is-small"> </button>
+                        <button id="1_3" class="button is-ghost is-small"> </button>
+                        <button id="1_4" class="button is-ghost is-small"> </button>
+                        <button id="1_5" class="button is-ghost is-small"> </button>
+                        <button id="1_6" class="button is-ghost is-small"> </button>
+                    </div>
+                    <div class="buttons">
+                        <button id="2_0" class="button is-ghost is-small"> </button>
+                        <button id="2_1" class="button is-ghost is-small"> </button>
+                        <button id="2_2" class="button is-ghost is-small"> </button>
+                        <button id="2_3" class="button is-ghost is-small"> </button>
+                        <button id="2_4" class="button is-ghost is-small"> </button>
+                        <button id="2_5" class="button is-ghost is-small"> </button>
+                        <button id="2_6" class="button is-ghost is-small"> </button>
+                    </div>
+                    <div class="buttons">
+                        <button id="3_0" class="button is-ghost is-small"> </button>
+                        <button id="3_1" class="button is-ghost is-small"> </button>
+                        <button id="3_2" class="button is-ghost is-small"> </button>
+                        <button id="3_3" class="button is-ghost is-small"> </button>
+                        <button id="3_4" class="button is-ghost is-small"> </button>
+                        <button id="3_5" class="button is-ghost is-small"> </button>
+                        <button id="3_6" class="button is-ghost is-small"> </button>
+                    </div>
+                    <div class="buttons">
+                        <button id="4_0" class="button is-ghost is-small"> </button>
+                        <button id="4_1" class="button is-ghost is-small"> </button>
+                        <button id="4_2" class="button is-ghost is-small"> </button>
+                        <button id="4_3" class="button is-ghost is-small"> </button>
+                        <button id="4_4" class="button is-ghost is-small"> </button>
+                        <button id="4_5" class="button is-ghost is-small"> </button>
+                        <button id="4_6" class="button is-ghost is-small"> </button>
+                    </div>
+                    <div class="buttons">
+                        <button id="5_0" class="button is-ghost is-small"> </button>
+                        <button id="5_1" class="button is-ghost is-small"> </button>
+                        <button id="5_2" class="button is-ghost is-small"> </button>
+                        <button id="5_3" class="button is-ghost is-small"> </button>
+                        <button id="5_4" class="button is-ghost is-small"> </button>
+                        <button id="5_5" class="button is-ghost is-small"> </button>
+                        <button id="5_6" class="button is-ghost is-small"> </button>
+                    </div>
+                    <div class="buttons">
+                        <button id="6_0" class="button is-ghost is-small"> </button>
+                        <button id="6_1" class="button is-ghost is-small"> </button>
+                        <button id="6_2" class="button is-ghost is-small"> </button>
+                        <button id="6_3" class="button is-ghost is-small"> </button>
+                        <button id="6_4" class="button is-ghost is-small"> </button>
+                        <button id="6_5" class="button is-ghost is-small"> </button>
+                        <button id="6_6" class="button is-ghost is-small"> </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--
+        <table class="table is-bordered">
+            <tbody>
+                <tr>
+                    <td id="0 0" class="has-background-white"> </td>
+                    <td id="0 1" class="has-background-black"> </td>
+                    <td id="0 2" class="has-background-primary"> </td>
+                    <td id="0 3" class="has-background-danger"> </td>
+                </tr>
+            </tbody>
+        </table>
+    -->
+    </body>
+</html>

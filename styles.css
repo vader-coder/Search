@@ -1,0 +1,18 @@
+.empty {
+    background-attachment: aliceblue;
+}
+.wall {
+    background-color: black;
+}
+.selected {
+    background-color: cyan;
+}
+.path {
+    background-color: red;
+}
+.heightOfPage {
+    min-height : 100vh;
+}
+button {
+    width: 5px;
+}
