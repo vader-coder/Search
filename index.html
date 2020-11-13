@@ -4,7 +4,7 @@
             integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
             crossorigin="anonymous" />
         <link rel="stylesheet" href="styles.css"/>
-        <link rel="stylesheet" href="shapes.less"/>
+        <link rel="stylesheet" href="maze.less"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"
             integrity="sha512-rCgfeoOQxpi926f8I0zdBVUY9q/2SKXqrdIy23yEPuvWvJ8/jwDqhQ0eJJhS9L8ySZsmbEQp3LCgPTiaAk5WVw=="
             crossorigin="anonymous"></script>
@@ -33,7 +33,12 @@
                                 </div>-->
                 </aside>
                 <div class="column is-four-fifths">
-                    <div class="square"></div>
+                    <div class="shapespacer">
+                        <div class="square"></div>
+                    </div>
+                    <pre>.square {
+                    	.square(100px);
+                    }</pre>
                     <svg width="400" height="180">
                         <rect x="50" y="20" width="20" height="20" style="fill:red;opacity:0.5" />
                     </svg>
@@ -107,6 +112,7 @@
                     </div>
                 </div>
             </section>
+            <div class="square"></div>
         </div>
         <!--
         <table class="table is-bordered">
