@@ -24,7 +24,16 @@ function setMouseOver(canEdit) {
         //$("button.cell").unbind("mouseover");
     }
 }
-
+//turn off edit maze
+function turnOffEdit() {
+    setMouseOver(false);//turn of editing
+    $('#toggleEdit').prop("checked", false);
+}
+//turn on editing maze
+function turnOnEdit() {
+    setMouseOver(true);//turn of editing
+    $('#toggleEdit').prop("checked", true);
+}
 //display a maze represented by a 2d array of 1s and 0s
 function displayMaze(maze) {
     let gridHTML = ""
@@ -88,26 +97,28 @@ $(document).ready(function () {
     $("button.bigMap").click(function() {
         let maze = mazeDict.bigMap;
         displayMaze(maze);
-        setMouseOver(editMode);
+        turnOffEdit();
+        //setMouseOver(editMode);
     });
     $("button.bigMap2").click(function () {
         let maze = mazeDict.bigMap2;
         displayMaze(maze);
-        setMouseOver(editMode);
+        turnOffEdit();
+        //setMouseOver(editMode);
     });
     $("button.bigMap3").click(function () {
         let maze = mazeDict.bigMap3;
         displayMaze(maze);
-        setMouseOver(editMode);
+        turnOffEdit()
+        //setMouseOver(editMode);
     });
     //if can't get this to work, can always switch to red and green.
     $("#target").click(function() {
-        setMouseOver(false);//turn of editing
+        turnOffEdit()
         if (endId != null) {//end has never been made
             $('#'+endId).empty();//set html of previous id to nothing
         }
         endId = $(this).attr('id');//save id of current
-        $('#toggleEdit').prop("checked", false);
         $("button.white").click(function () {
             let text = `
             <span class="icon is-flex is-vertical-center" style="z-index: 10; color:#ff3860">
