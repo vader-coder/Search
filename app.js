@@ -2,21 +2,26 @@
 
 var mazeDict;//maze dicitonary
 var editMode = true;//by default, not editing. 
-
+var startId = null;
+var endId = null;
+function toggleCell () {
+    $(this).toggleClass("white");
+    $(this).toggleClass("black");
+}
 function toggleEditMode() {//toggle edit mode
     editMode = !(editMode);
 }
 //set mouse over up for white and black cells
 function setMouseOver(canEdit) {
-    if (canEdit) {//if can edit
-        $("button.cell").mouseover(function () {
+    if (canEdit) {//if can edit .mouseover
+        $("button.cell").on("mouseover", function () {
             $(this).toggleClass("white");
             $(this).toggleClass("black");
         });
     }
     else {
-        $("button.cell").mouseover(function () {
-        });
+        $("button.cell").off("mouseover");//turn off event handlers for button.cell
+        //$("button.cell").unbind("mouseover");
     }
 }
 
@@ -49,8 +54,31 @@ function computeRow(row, rowNum) {
     return rowHTML;
 }
 
+//show the default white maze
+function displayBlankMaze() {
+    let gridHTML = ""
+    for (let row = 0; row < 39; row++) {
+        let rowHTML = computeBlankRow(row);
+        gridHTML += rowHTML;
+    }
+    $(".grid").html(gridHTML);
+}
+//compute default blank row of white cells
+function computeBlankRow(rowNum) {
+    let rowHTML = "";
+    let rowStr = rowNum.toString();
+    let id = rowStr + "_";
+    for (let col = 0; col < 81; col++) {
+        id += col.toString();
+        rowHTML += '<button id="' + id + '" class="cell white"></button>\n';
+        id = rowStr + "_";
+    }
+    return rowHTML;
+}
+
 $(document).ready(function () {
     //set cell to white background when black cell is clicked
+    displayBlankMaze();
     $.getJSON("https://vader-coder.github.io/Search/mazes.json", function(mazes) {
         console.log(mazes.bigMap);
         console.log(mazes.bigMap2);
@@ -60,17 +88,6 @@ $(document).ready(function () {
     $("button.bigMap").click(function() {
         let maze = mazeDict.bigMap;
         displayMaze(maze);
-        /*let row = maze[0];
-        let rowHTML = "";
-        for (let i=0; i<row.length; i++) {
-            if (row[i] == 0) {//add white cell
-                rowHTML += '<button class="cell white"></button>\n';
-            }
-            else if (row[i] == 1) {//add black cell
-                rowHTML += '<button class="cell black"></button>\n';
-            }
-        }
-        $(".grid").html(rowHTML);*/
         setMouseOver(editMode);
     });
     $("button.bigMap2").click(function () {
@@ -82,6 +99,39 @@ $(document).ready(function () {
         let maze = mazeDict.bigMap3;
         displayMaze(maze);
         setMouseOver(editMode);
+    });
+    //if can't get this to work, can always switch to red and green.
+    $("#target").click(function() {
+        setMouseOver(false);//turn of editing
+        if (endId != null) {//end has never been made
+            $('#'+endId).empty();//set html of previous id to nothing
+        }
+        endId = $(this).attr('id');//save id of current
+        $('#toggleEdit').prop("checked", false);
+        $("button.white").click(function () {
+            let text = `
+            <span class="icon is-flex is-vertical-center" style="z-index: 10; color:#ff3860">
+                <span class="fa-stack">
+                    <i class="fas fa-bullseye fa-xs"></i>
+                </span>
+            </span>
+            `;
+            $(this).html(text);
+        });
+    });
+    $("#start").click(function () {
+        setMouseOver(false);//turn of editing
+        $('#toggleEdit').prop("checked", false);
+        $("button.white").click(function () {
+            let text = `
+            <span class="icon is-flex is-vertical-center" style="z-index: 10; color:#00d1b2">
+                <span class="fa-stack">
+                    <i class="fas fa-play fa-xs"></i>
+                </span>
+            </span>
+            `;
+            $(this).html(text);
+        });
     });
     $("button.is-black").click(function () {
         $(this).toggleClass("is-black");

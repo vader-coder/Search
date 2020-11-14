@@ -4,8 +4,10 @@
             integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA=="
             crossorigin="anonymous" />
         <link rel="stylesheet" href="styles.css"/>
-        <!--<link rel="stylesheet" href="dist/switchery.css" />
-        <script src="dist/switchery.js"></script>-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+            crossorigin="anonymous" />
+        <script src="https://use.fontawesome.com/bb4d5b9410.js"></script>
         <!--<link rel="stylesheet" href="maze.less"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.12.2/less.min.js"
             integrity="sha512-rCgfeoOQxpi926f8I0zdBVUY9q/2SKXqrdIy23yEPuvWvJ8/jwDqhQ0eJJhS9L8ySZsmbEQp3LCgPTiaAk5WVw=="
@@ -17,37 +19,44 @@
         <!--<div class="columns">
             <div class="column is-one-fifth has-background-light heightOfPage">
             -->
-            <section class="hero">
+            <section class="hero is-info">
                 <div class="hero-body">
-                    <div class="container">
-                        <div class="field">
-                            <input id="toggleEdit" type="checkbox" name="switchRoundedDefault" class="switch is-rounded"
-                                checked="checked">
-                            <label for="toggleEdit">Let yourself edit the maze</label>
+                    <div class="container is-centered">
+                        <div>
+                            <div class="field">
+                                <input id="toggleEdit" type="checkbox" name="switchRoundedDefault" class="switch is-rounded" checked="checked">
+                                <label for="toggleEdit">Let yourself edit the maze</label>
+                            </div>
+                            <div class="buttons">
+                                <button id="Maze 1" class="button is-primary is-normal bigMap">Maze 1</button>
+                                <button id="Maze 2" class="button is-primary is-normal bigMap2">Maze 2</button>
+                                <button id="Maze 3" class="button is-primary is-normal bigMap3">Maze 3</button>
+                            </div>
+                            <div class="buttons">
+                                <button id="start" class="button is-white is-normal is-flex is-vertical-center">
+                                    <span class="icon is-large is-flex is-vertical-center" style="z-index: 10; color:#00d1b2">
+                                        <span class="fa-stack">
+                                            <i class="fas fa-play"></i>
+                                        </span>
+                                    </span>
+                                </button>
+                                <button id="target" class="button is-white is-normal is-flex is-vertical-center">
+                                    <span class="icon is-large is-flex is-vertical-center" style="z-index: 10; color:#ff3860">
+                                        <span class="fa-stack">
+                                            <i class="fas fa-bullseye"></i>
+                                        </span>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="buttons">
-                            <button id="Maze 1" class="button is-primary is-normal bigMap">Maze 1</button>
-                            <button id="Maze 2" class="button is-primary is-normal bigMap2">Maze 2</button>
-                            <button id="Maze 3" class="button is-primary is-normal bigMap3">Maze 3</button>
+                        <div class="buttons" style="float:right;">
+                            <button id="BFS" class="button is-primary is-normal">Breadth First Search</button>
+                            <button id="DFS" class="button is-primary is-normal">Depth First Search</button>
                         </div>
                     </div>
                 </div>
-            </section
-            <section class="main-content columns is-fullheight heightOfPage">
-                <aside class="menu is-narrow is-fullheight has-background-light">
-                    <br>
-                    <p class="menu-label">
-                        Pathfinding Algorithm
-                    </p>
-                    <ul class="menu-list">
-                        <li><a id="BFS">Breadth First Search</a></li>
-                        <li><a id="DFS">Depth First Search</a></li>
-                    </ul>
-                </aside>
-                    <div class="grid">
-                        <link href="buttonsblank.html" rel="import" />
-                    </div>
             </section>
-        </div>
+            <div class="grid">
+            </div>
     </body>
 </html>

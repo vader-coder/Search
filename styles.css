@@ -1,3 +1,11 @@
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.is-vertical-center {
+    align-items: center;
+}
 rect {
     opacity: 0.5;
     width: 20;
@@ -25,7 +33,6 @@ svg {
 }
 .red {
     background-color: #ff3860;
-    border: none;
 }
 
 .empty {
