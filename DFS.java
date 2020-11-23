@@ -1,6 +1,7 @@
 
+//dfs uses a stack to store frontier
 class DFS extends Search {
-    DFS(int[][] maze, int rows, int cols, String wall, String open) {//queue vs stack
+    DFS(String[][] maze, int rows, int cols, String wall, String open, String visited) {//queue vs stack
         super(maze, rows, cols, wall, open);
         frontier = new Stack<MazeNode>();//stack
     }

@@ -1,14 +1,15 @@
+//class to represent a node in a maze
 class MazeNode {
-    private  Pair<int, int> position;
-    private boolean visited = false;
-    private MazeNode previous = null;
+    private  Pair<int, int> position;//pair to represent position in a graph
+    private boolean visited = false;//has been visited
+    private MazeNode previous = null;//previous node in the path
     public MazeNode (Pair<int, int> position) {
         this.position = position;
     }
     public void setVisited() {
         visited = true;
     }
-    public void wasVisited() {
+    public boolean wasVisited() {
         return visited;
     }
     public void setPrevious (MazeNode node) {

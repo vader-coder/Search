@@ -1,5 +1,6 @@
+//only bfs uses a deque instead of a stack.
 class BFS extends Search {
-    BFS(int[][] maze, int rows, int cols, String wall, String open) {//queue vs stack
+    BFS(String[][] maze, int rows, int cols, String wall, String open, String visited) {//queue vs stack
         super(maze, rows, cols, wall, open);
         frontier = new Deque<MazeNode>();//queue
     }

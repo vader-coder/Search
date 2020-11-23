@@ -1,15 +1,15 @@
 //solves maze, can use any kind of linked list
 class Search {
-    private int [][] maze;//array of ints
+    private String [][] maze;//array of ints
     private int rows;
     private int cols;
-    private int visiited;//int for visiited
-    private int wall;//int for open
-    private int open;//int for closed
+    private String visited;//int for visiited
+    private String wall;//int for closed
+    private String open;//int for open
     private Pair<int, int> start;//start index pair
     private Pair<int, int> goal;//end index pair in 2d array
     private List frontier;//use a child class to extend and use a queue or a list.
-    Search(int[] maze, int rows, int cols, int wall, int open, int visited) {
+    Search(String[][] maze, int rows, int cols, String wall, String open, String visited) {
         this.maze = maze;
         this.rows = rows;
         this.cols = cols;
@@ -19,7 +19,7 @@ class Search {
     }
     //we probably want a new maze each time we solve since we are changing the goal
     //give type of deque to return once you decide on it.
-    public Deque solve (Pair<int, int> start, Pair<int, int> goal) {
+    public void solve (Pair<int, int> start, Pair<int, int> goal) {
         //mark start node as visited
         this.start = start;
         this.goal = goal;
