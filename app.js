@@ -94,6 +94,7 @@ $(document).ready(function () {
         console.log(mazes.bigMap3);
         mazeDict = mazes;
     });
+    //event listeners for buttons to draw a given maze.
     $("button.bigMap").click(function() {
         let maze = mazeDict.bigMap;
         displayMaze(maze);
