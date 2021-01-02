@@ -33,8 +33,12 @@ svg {
 }
 .red {
     background-color: #ff3860;
+    border: 1px solid #d3d3d3;
 }
-
+.green {
+    background-color: #339933;
+    border: 1px solid #d3d3d3;
+}
 .empty {
     fill: aliceblue;
 }

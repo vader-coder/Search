@@ -1,5 +1,6 @@
 //next: add lots of elements (25x25)
 
+
 var mazeDict;//maze dicitonary
 var editMode = true;//by default, not editing. 
 var startId = null;
@@ -27,10 +28,11 @@ function setMouseOver(canEdit) {
 //turn off edit maze
 function turnOffEdit() {
     setMouseOver(false);//turn of editing
-    $('#toggleEdit').prop("checked", false);
+    $('#toggleEdit').prop("checked", false);//uncheck check box
 }
 //turn on editing maze
 function turnOnEdit() {
+    $("button.white").off("click");//TODO: fix so can't put down red while making maze. 
     setMouseOver(true);//turn of editing
     $('#toggleEdit').prop("checked", true);
 }
@@ -115,34 +117,30 @@ $(document).ready(function () {
     });
     //if can't get this to work, can always switch to red and green.
     $("#target").click(function() {
-        turnOffEdit()
-        if (endId != null) {//end has never been made
-            $('#'+endId).empty();//set html of previous id to nothing
-        }
-        endId = $(this).attr('id');//save id of current
-        $("button.white").click(function () {
-            let text = `
-            <span class="icon is-flex is-vertical-center" style="z-index: 10; color:#ff3860">
-                <span class="fa-stack">
-                    <i class="fas fa-bullseye fa-xs"></i>
-                </span>
-            </span>
-            `;
-            $(this).html(text);
+        let white = $("button.white");
+        white.off("click");
+        white.click(function () {
+            //mkGreen($(this).id);
+            if (endId != null) {
+                toggleRed(endId);
+            }
+            let current = $(this);
+            toggleRed(current);
+            endId = current;
         });
     });
     $("#start").click(function () {
-        setMouseOver(false);//turn of editing
-        $('#toggleEdit').prop("checked", false);
-        $("button.white").click(function () {
-            let text = `
-            <span class="icon is-flex is-vertical-center" style="z-index: 10; color:#00d1b2">
-                <span class="fa-stack">
-                    <i class="fas fa-play fa-xs"></i>
-                </span>
-            </span>
-            `;
-            $(this).html(text);
+        turnOffEdit();
+        let white = $("button.white");
+        white.off("click");
+        white.click(function () {
+            //mkGreen($(this).id);
+            if (startId != null) {
+                toggleGreen(startId);
+            }
+            let current = $(this);
+            toggleGreen(current);
+            startId = current;
         });
     });
     $("button.is-black").click(function () {
@@ -208,15 +206,37 @@ function classToArrItem(classStr) {
         return 1;
     }
 }
-function mkRed(id) {
-    let cell = $('#'+id)
-    cell.toggleClass("is-ghost");
-    cell.toggleClass("is-danger");
+function toggleRed(selector) {
+    selector.toggleClass("white");
+    selector.toggleClass("red");
 }
-function mkGreen(id) {
-    let cell = $('#' + id)
-    cell.toggleClass("is-ghost");
-    cell.toggleClass("is-primary");
+function toggleGreen(selector) {
+    selector.toggleClass("white");
+    selector.toggleClass("green");
+}
+//solution will be an iterable with each item being a cell to turn a given color.
+function showSolution(iterable) {//will need to have time btw probably.
+    l = len(iterable);
+    let selector, cell, type;
+    for (let i=0; i<l; i++) {
+        item = iterable[i];
+        selector = "#" + item[0] + "_" + item[1];
+        cell = $(selector);
+        type = item[3];
+        if (type == "frontier") {//add to frontier
+            cell.toggleClass("white");
+            cell.toggleClass("blue");
+        }
+        else if (type == "explore") {//select its neighbors
+            cell.toggleClass("white");
+            cell.toggleClass("yellow");
+        }
+        else if (type == "path") {//is on path
+            cell.toggleClass("white");//maybe one of the others?
+            cell.toggleClass("path");
+            break;//all rest will be in path
+        }
+    }
 }
 //generate some maze in terms of the cells that exist. 
 //maybe use examples from lab.
